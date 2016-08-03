@@ -18,17 +18,10 @@
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 
 require 'rubocop'
+require 'rubocop/rspec/support'
 require 'rspec-power_assert'
 require 'pry'
 require 'pry_testcase/rspec'
-
-rubocop_path = File.join(File.dirname(__FILE__), '../vendor/rubocop')
-
-unless File.directory?(rubocop_path)
-  raise "Can't run specs without a local RuboCop checkout. Look in the README."
-end
-
-Dir["#{rubocop_path}/spec/support/**/*.rb"].each { |f| require f }
 
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
